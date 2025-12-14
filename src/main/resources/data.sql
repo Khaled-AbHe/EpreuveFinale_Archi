@@ -29,3 +29,11 @@ INSERT INTO offre (id, trajet_id, operateur_id, depart, prix_base) VALUES
     (1003, 102, 1, '2025-12-10T08:15',  120.00),  -- AC401 (YUL->YYZ)
     (1004, 103, 3, '2025-12-11T09:45',  320.00),  -- WS123 (YYZ->YVR)
     (1005, 105, 1, '2025-12-12T07:00',  150.00);  -- AC765 (YUL->JFK)
+
+-- === TERMINAL =============================================================
+INSERT INTO terminal (id, code, ville , typetrajet) VALUES
+   (1, 'YUL', 'Montreal', 'vol'),
+   (2, 'GTA', 'Tanger', 'fer'),
+   (3, 'CDG', 'Paris','vol'),
+   (4, 'YVR', 'Toronto' , 'fer'),
+   (5, 'JFK', 'New York', 'vol');

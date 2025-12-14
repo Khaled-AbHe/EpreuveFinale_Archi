@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS offre;
 DROP TABLE IF EXISTS vol;
 DROP TABLE IF EXISTS operateur;
 DROP TABLE IF EXISTS aeroport;
+DROP TABLE IF EXISTS terminal;
 
 -- Create Aeroport table
 CREATE TABLE aeroport (
@@ -38,4 +39,11 @@ CREATE TABLE offre (
     prix_base DOUBLE NOT NULL,
     FOREIGN KEY (trajet_id) REFERENCES vol(id),
     FOREIGN KEY (operateur_id) REFERENCES operateur(id)
+);
+-- Create terminal table
+CREATE TABLE terminal (
+    id INTEGER PRIMARY KEY,
+    code VARCHAR(3) NOT NULL UNIQUE,
+    ville VARCHAR(100) NOT NULL,
+    typetrajet VARCHAR(50) NOT NULL
 );
