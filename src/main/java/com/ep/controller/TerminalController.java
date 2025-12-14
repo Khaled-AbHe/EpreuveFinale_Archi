@@ -1,6 +1,7 @@
 package com.ep.controller;
 
 import com.ep.entity.Terminal;
+import com.ep.entity.TypeTransport;
 import com.ep.service.TerminalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/terminal")
-public class TerminalAdminController {
+@RequestMapping("/api/admin/terminals")
+public class TerminalController {
     private final TerminalService terminalService;
 
-    public TerminalAdminController (TerminalService terminalService){
+    public TerminalController(TerminalService terminalService){
         this.terminalService = terminalService;
     }
 
@@ -27,7 +28,7 @@ public class TerminalAdminController {
             @RequestParam int id,
             @RequestParam String code,
             @RequestParam String ville,
-            @RequestParam String typeTrajet
+            @RequestParam TypeTransport typeTrajet
     ) {
         return ResponseEntity.ok(
                 terminalService.createTerminal(id, code, ville, typeTrajet)

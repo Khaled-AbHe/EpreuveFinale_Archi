@@ -32,10 +32,9 @@ public class OffresService {
     public Offre createOffre(int id, int volId, int operateurId, String depart, double prixBase) {
         Offre newOffre = new Offre();
 
-        // TO DO
         // vérfier les parametres
-        Vol vol = volRepo.findById(volId).orElseThrow(() -> new IllegalArgumentException(""));
-        Operateur op = opRepo.findById(operateurId).orElseThrow(() -> new IllegalArgumentException(""));
+        Vol vol = volRepo.findById(volId).orElseThrow(() -> new IllegalArgumentException("Vol n'existe pas"));
+        Operateur op = opRepo.findById(operateurId).orElseThrow(() -> new IllegalArgumentException("Operateur n'existe pas"));
 
         // créer l'offre
         newOffre.setId(id);

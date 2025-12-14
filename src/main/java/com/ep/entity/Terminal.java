@@ -1,20 +1,21 @@
 package com.ep.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
 public class Terminal {
-     @Id
+    @Id
     private int id;
 
     private String code;
-
     private String ville;
 
-    private String typeTrajet; //air ou fer
+    @Column(name = "typetrajet")
+    @Enumerated(EnumType.STRING)
+    private TypeTransport typeTrajet; // AERIEN ou FERROVIAIRE
 
     public Terminal() {}
-    public Terminal(String code, String ville , String typeTrajet) {
+    public Terminal(String code, String ville, TypeTransport typeTrajet) {
         this.code = code; 
         this.ville = ville;
         this.typeTrajet = typeTrajet;
@@ -24,11 +25,11 @@ public class Terminal {
     public int getId() { return id; }
     public String getCode() { return code; }
     public String getVille() { return ville; }
-    public String getTypeTrajet() { return typeTrajet; }
+    public TypeTransport getTypeTrajet() { return typeTrajet; }
 
     // setters
     public void setId(int id) { this.id = id; }
     public void setCode(String code) { this.code = code; }
     public void setVille(String ville) { this.ville = ville; }
-    public void setTypeTrajet(String typeTrajet) { this.typeTrajet = typeTrajet; }
+    public void setTypeTrajet(TypeTransport typeTrajet) { this.typeTrajet = typeTrajet; }
 }
